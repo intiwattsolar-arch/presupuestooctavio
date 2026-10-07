@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Técnico-Comercial | IntiWatt</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        intiwatt: {
+                            orange: '#f59e0b',
+                            darkorange: '#d97706',
+                            lightorange: '#fef3c7',
+                            navy: '#0f172a',
+                            slate: '#1e293b',
+                            graybg: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; padding: 0 !important; }
+            .print-shadow-none { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
+            .page-break { page-break-before: always; }
+        }
+        .gradient-brand {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .accent-glow {
+            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen py-6 px-3 sm:px-6 lg:px-8">
+
+    <div class="max-w-5xl mx-auto space-y-6">
+
+        <!-- HEADER & BRANDING -->
+        <header class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 print-shadow-none">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <!-- Logo & Brand Title -->
+                <div class="flex items-center gap-4">
+                    <!-- IntiWatt Official Sun-Chip Circuit Logo -->
+                    <div class="flex-shrink-0">
+                        <svg class="w-16 h-16 sm:w-20 sm:h-20" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Center Microchip -->
+                            <rect x="75" y="55" width="50" height="50" rx="8" stroke="#F59E0B" stroke-width="4.5" fill="none"/>
+                            <rect x="85" y="65" width="30" height="30" rx="5" stroke="#F59E0B" stroke-width="3.5" fill="none"/>
+                            <rect x="92" y="72" width="16" height="16" rx="3" fill="#F59E0B"/>
+                            
+                            <!-- Chip Pins -->
+                            <line x1="83" y1="47" x2="83" y2="55" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="94" y1="47" x2="94" y2="55" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="106" y1="47" x2="106" y2="55" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="117" y1="47" x2="117" y2="55" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="83" y1="105" x2="83" y2="113" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="94" y1="105" x2="94" y2="113" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="106" y1="105" x2="106" y2="113" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="117" y1="105" x2="117" y2="113" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="67" y1="63" x2="75" y2="63" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="67" y1="74" x2="75" y2="74" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="67" y1="86" x2="75" y2="86" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="67" y1="97" x2="75" y2="97" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="125" y1="63" x2="133" y2="63" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="125" y1="74" x2="133" y2="74" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="125" y1="86" x2="133" y2="86" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="125" y1="97" x2="133" y2="97" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+
+                            <!-- Main Circle Ring -->
+                            <circle cx="100" cy="80" r="54" stroke="#F59E0B" stroke-width="4.5" fill="none"/>
+
+                            <!-- Radial Circuit Traces -->
+                            <path d="M100 26 L100 14" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="100" cy="10" r="4.5" fill="#F59E0B"/>
+                            <path d="M100 134 L100 146" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="100" cy="150" r="4.5" fill="#F59E0B"/>
+                            <path d="M46 80 L34 80" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="30" cy="80" r="4.5" fill="#F59E0B"/>
+                            <path d="M154 80 L166 80" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="170" cy="80" r="4.5" fill="#F59E0B"/>
+                            <path d="M121 30 L130 18" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="133" cy="14" r="4.5" fill="#F59E0B"/>
+                            <path d="M138 42 L150 32 L158 32" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="163" cy="32" r="4.5" fill="#F59E0B"/>
+                            <path d="M149 59 L162 52 L172 52" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="177" cy="52" r="4.5" fill="#F59E0B"/>
+                            <path d="M149 101 L162 108 L172 108" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="177" cy="108" r="4.5" fill="#F59E0B"/>
+                            <path d="M138 118 L150 128 L158 128" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="163" cy="128" r="4.5" fill="#F59E0B"/>
+                            <path d="M121 130 L130 142" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="133" cy="146" r="4.5" fill="#F59E0B"/>
+                            <path d="M79 130 L70 142" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="67" cy="146" r="4.5" fill="#F59E0B"/>
+                            <path d="M62 118 L50 128 L42 128" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="37" cy="128" r="4.5" fill="#F59E0B"/>
+                            <path d="M51 101 L38 108 L28 108" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="23" cy="108" r="4.5" fill="#F59E0B"/>
+                            <path d="M51 59 L38 52 L28 52" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="23" cy="52" r="4.5" fill="#F59E0B"/>
+                            <path d="M62 42 L50 32 L42 32" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="37" cy="32" r="4.5" fill="#F59E0B"/>
+                            <path d="M79 30 L70 18" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="67" cy="14" r="4.5" fill="#F59E0B"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h1 class="text-2xl sm:text-3xl font-extrabold text-amber-500 tracking-tight" style="font-weight: 800;">IntiWatt</h1>
+                            <span class="px-2.5 py-0.5 text-xs font-bold bg-amber-100 text-amber-800 rounded-full border border-amber-200">Ingeniería Solar</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-semibold text-amber-600 uppercase tracking-wider mt-0.5">Somos la Eficiencia Energética</p>
+                    </div>
+                </div>
+
+                <!-- Document Meta & Print Action -->
+                <div class="flex flex-col sm:flex-row md:flex-col items-start md:items-end justify-between w-full md:w-auto gap-3 pt-4 md:pt-0 border-t md:border-t-0 border-slate-100">
+                    <div class="text-left md:text-right text-xs sm:text-sm text-slate-500 space-y-0.5">
+                        <p class="font-medium text-slate-700">Fecha: <span class="text-slate-900 font-semibold">Octubre 2026</span></p>
+                        <p>Validez: <span class="font-medium text-slate-700">15 días corridos</span></p>
+                        <p>Distribuidora: <span class="font-semibold text-slate-800">EDESE S.A.</span></p>
+                    </div>
+                    <button onclick="window.print()" class="no-print inline-flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-xl transition shadow-md hover:shadow-lg">
+                        <i class="fa-solid fa-print"></i> Imprimir / Guardar PDF
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- PROPOSAL BANNER & CLIENT DATA -->
+        <section class="gradient-brand text-white rounded-2xl shadow-xl p-6 sm:p-8 print-shadow-none relative overflow-hidden">
+            <div class="absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 space-y-6">
+                <div>
+                    <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-lg uppercase tracking-wider border border-amber-500/30 mb-2">
+                        Propuesta Técnico-Comercial
+                    </span>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
+                        Sistema Fotovoltaico On-Grid 4,64 kWp — Inyección Cero
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-700/80">
+                    <div class="bg-slate-800/60 backdrop-blur border border-slate-700/50 p-3.5 rounded-xl">
+                        <span class="text-xs text-slate-400 font-medium block">Cliente</span>
+                        <strong class="text-sm font-semibold text-slate-100 block mt-0.5">Campero Octavio Francisco Leandro</strong>
+                    </div>
+                    <div class="bg-slate-800/60 backdrop-blur border border-slate-700/50 p-3.5 rounded-xl">
+                        <span class="text-xs text-slate-400 font-medium block">Ubicación</span>
+                        <strong class="text-sm font-semibold text-slate-100 block mt-0.5">Leandro N. Alem 461, La Banda, Santiago del Estero</strong>
+                    </div>
+                    <div class="bg-slate-800/60 backdrop-blur border border-slate-700/50 p-3.5 rounded-xl">
+                        <span class="text-xs text-slate-400 font-medium block">Objetivo Principal</span>
+                        <strong class="text-sm font-semibold text-amber-400 block mt-0.5">Autoconsumo & Reducción de Factura</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXECUTIVE KPI CARDS -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center">
+                <i class="fa-solid fa-solar-panel text-amber-500 text-xl mb-2"></i>
+                <p class="text-xs font-medium text-slate-500 uppercase">Potencia Instalada</p>
+                <p class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">4,64 <span class="text-sm font-semibold text-slate-500">kWp</span></p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center">
+                <i class="fa-solid fa-bolt text-emerald-500 text-xl mb-2"></i>
+                <p class="text-xs font-medium text-slate-500 uppercase">Generación Anual</p>
+                <p class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">≈ 7.450 <span class="text-sm font-semibold text-slate-500">kWh</span></p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center">
+                <i class="fa-solid fa-hand-holding-dollar text-blue-500 text-xl mb-2"></i>
+                <p class="text-xs font-medium text-slate-500 uppercase">Inversión Llave en Mano</p>
+                <p class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">USD 3.961,24</p>
+                <span class="text-[10px] text-slate-400 font-medium">≈ $6.100.310 ARS</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center">
+                <i class="fa-solid fa-chart-line text-indigo-500 text-xl mb-2"></i>
+                <p class="text-xs font-medium text-slate-500 uppercase">Retorno Estimado</p>
+                <p class="text-xl sm:text-2xl font-bold text-indigo-600 mt-1">≈ 5,8 <span class="text-sm font-semibold text-slate-500">Años</span></p>
+            </div>
+        </section>
+
+        <!-- SPECIAL VISUAL FEATURE: ¿CÓMO FUNCIONA LA PRODUCCIÓN SOLAR Y EL COSTO VARIABLE? -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <span class="w-2 h-6 bg-amber-500 rounded-full inline-block"></span>
+                        ¿Cómo Funciona la Producción Solar y el Ahorro en el Costo Variable?
+                    </h3>
+                    <span class="px-3 py-1 bg-amber-50 text-amber-800 text-xs font-bold rounded-lg border border-amber-200 self-start md:self-auto">
+                        <i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i> Análisis Energético Explicativo
+                    </span>
+                </div>
+            </div>
+
+            <!-- Conceptual Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-amber-50/70 border border-amber-200 rounded-xl space-y-2">
+                    <h4 class="text-sm font-bold text-amber-900 flex items-center gap-2">
+                        <i class="fa-solid fa-sun text-amber-600"></i> Curva de Generación Solar Diurna
+                    </h4>
+                    <p class="text-xs text-amber-950 leading-relaxed">
+                        Los paneles fotovoltaicos generan electricidad proporcionalmente a la radiación solar disponible, comenzando al amanecer, alcanzando su <strong>pico máximo de generación entre las 10:00 y las 16:00 hs</strong> y decayendo hacia el atardecer.
+                    </p>
+                </div>
+
+                <div class="p-4 bg-emerald-50/70 border border-emerald-200 rounded-xl space-y-2">
+                    <h4 class="text-sm font-bold text-emerald-900 flex items-center gap-2">
+                        <i class="fa-solid fa-receipt text-emerald-600"></i> Reducción Directa del Costo Variable
+                    </h4>
+                    <p class="text-xs text-emerald-950 leading-relaxed">
+                        La factura de <strong>EDESE S.A.</strong> posee un término de consumo por kWh (Costo Variable). Cada kWh generado por el sistema solar que se consume instantáneamente en el inmueble <strong>deja de comprarse a la red</strong>, eliminando directamente dicho cargo variable.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 24-HOUR HOURLY PROFILE CHART -->
+            <div class="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-200 space-y-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-800 uppercase tracking-wider">
+                            Perfil Horario Típico de 24 Horas: Generación Solar vs. Consumo
+                        </h4>
+                        <p class="text-xs text-slate-500">
+                            Visualización de la cobertura solar sobre el consumo instantáneo durante un día estándar de operación.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 text-[11px] font-semibold text-slate-600 flex-wrap">
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> Generación Solar</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-slate-400 inline-block"></span> Consumo Total</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Autoconsumo (Ahorro Variable)</span>
+                    </div>
+                </div>
+
+                <div class="h-72 sm:h-80 relative w-full">
+                    <canvas id="chartPerfilDiario"></canvas>
+                </div>
+
+                <!-- Callouts under chart -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-2">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs">
+                        <span class="font-bold text-slate-800 block mb-0.5"><i class="fa-solid fa-arrow-down-long text-emerald-500"></i> Zona de Autoconsumo (Verde)</span>
+                        <p class="text-slate-600 text-[11px]">Energía consumida directamente del sol. Es la energía que reduce un 100% el término variable de la factura.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs">
+                        <span class="font-bold text-slate-800 block mb-0.5"><i class="fa-solid fa-plug text-slate-500"></i> Importación de Red (Gris)</span>
+                        <p class="text-slate-600 text-[11px]">Energía consumida fuera de las horas de sol o excedente nocturno que se continúa comprando a EDESE S.A.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs">
+                        <span class="font-bold text-slate-800 block mb-0.5"><i class="fa-solid fa-shield-halved text-amber-500"></i> Control Smart Meter</span>
+                        <p class="text-slate-600 text-[11px]">Modula el inversor en tiempo real para evitar cualquier inyección a la red pública (Inyección Cero).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cargos Fijos vs Variables Box -->
+            <div class="p-4 bg-slate-800 text-slate-200 rounded-xl text-xs space-y-2">
+                <strong class="font-bold text-amber-400 flex items-center gap-1.5 text-sm">
+                    <i class="fa-solid fa-circle-exclamation"></i> Precisiones sobre la Factura de Energía (Cargos Fijos vs. Variables)
+                </strong>
+                <p class="text-slate-300 leading-relaxed">
+                    El ahorro generado por el sistema solar actúa sobre el <strong>costo variable proporcional de los kWh consumidos</strong>. No elimina los cargos fijos de la factura (como cargo fijo de servicio comercial, potencia contratada básica o impuestos fijos del medidor), garantizando así una expectativa financiera realista y sin sorpresas.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 1 & 2: PROPUESTA Y SISTEMA PROPUESTO -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-amber-500 rounded-full inline-block"></span>
+                    1. Propuesta y Objetivo del Proyecto
+                </h3>
+            </div>
+
+            <p class="text-sm text-slate-600 leading-relaxed">
+                IntiWatt propone la instalación de un sistema fotovoltaico On-Grid de <strong>4,64 kWp</strong>, diseñado específicamente para reducir la cantidad de energía eléctrica que el inmueble necesita comprar a la red de <strong>EDESE S.A.</strong>
+            </p>
+            <p class="text-sm text-slate-600 leading-relaxed">
+                El sistema será configurado para <strong>inyección cero</strong>, priorizando el autoconsumo de la energía generada. El objetivo técnico y económico no es simplemente producir la mayor cantidad posible de energía, sino <strong>reducir de manera efectiva y sostenida el costo de electricidad del inmueble</strong>.
+            </p>
+
+            <div class="pt-2">
+                <h4 class="text-sm font-bold text-slate-800 mb-3 uppercase tracking-wider">
+                    2. Especificaciones Técnicas del Sistema Propuesto
+                </h4>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                                <th class="p-3 rounded-l-xl">Característica</th>
+                                <th class="p-3 rounded-r-xl">Especificación Técnica</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="p-3 font-medium text-slate-700">Potencia Fotovoltaica</td>
+                                <td class="p-3 font-bold text-slate-900">4,64 kWp</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium text-slate-700">Módulos Solares</td>
+                                <td class="p-3 text-slate-800">8 × 580 Wp</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium text-slate-700">Tecnología Módulos</td>
+                                <td class="p-3 text-slate-800"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-semibold text-xs">TOPCon N-Type</span> (Alta eficiencia)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium text-slate-700">Inversor Central</td>
+                                <td class="p-3 font-bold text-slate-900">GoodWe 5 kW</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium text-slate-700">Medición y Control</td>
+                                <td class="p-3 text-slate-800">Smart Meter GoodWe (Gestión Dinámica)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium text-slate-700">Configuración</td>
+                                <td class="p-3 text-slate-800">On-Grid (Conectado a Red)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium text-slate-700">Inyección a Red</td>
+                                <td class="p-3 font-bold text-amber-600">Cero (0%)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium text-slate-700">Destino de la Energía</td>
+                                <td class="p-3 font-bold text-emerald-700">Autoconsumo Inmueble</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200">
+                La relación entre potencia fotovoltaica e inversor es de <strong>0,93 DC/AC</strong>, proporcionando una configuración optimizada para el campo fotovoltaico propuesto. La configuración definitiva de los módulos y strings será validada durante la ingeniería ejecutiva, considerando orientación, inclinación, sombras y condiciones reales de instalación.
+            </p>
+        </section>
+
+        <!-- SECTION 3 & 4: PRODUCCIÓN Y ESCENARIOS DE AHORRO -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-amber-500 rounded-full inline-block"></span>
+                    3. Producción Energética y Escenarios de Ahorro
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Parameters Box -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                        Parámetros de Cálculo Solar
+                    </h4>
+                    <ul class="space-y-2 text-xs text-slate-600">
+                        <li class="flex justify-between border-b border-slate-200/60 pb-1.5">
+                            <span>Potencia instalada:</span>
+                            <strong class="text-slate-900">4,64 kWp</strong>
+                        </li>
+                        <li class="flex justify-between border-b border-slate-200/60 pb-1.5">
+                            <span>Horas Sol Equivalente (HSE):</span>
+                            <strong class="text-slate-900">5,5 h/día (Ref. La Banda)</strong>
+                        </li>
+                        <li class="flex justify-between border-b border-slate-200/60 pb-1.5">
+                            <span>Performance Ratio (PR):</span>
+                            <strong class="text-slate-900">0,80 (Eficiencia global)</strong>
+                        </li>
+                    </ul>
+                    <div class="pt-2">
+                        <div class="bg-amber-100/70 p-3 rounded-xl text-center">
+                            <span class="text-xs text-amber-800 font-semibold uppercase block">Producción Estimada Total</span>
+                            <strong class="text-xl font-extrabold text-amber-900 block mt-0.5">≈ 7.450 kWh / año</strong>
+                            <span class="text-xs text-amber-700">Equivalente promedio: <strong>≈ 621 kWh / mes</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Concept Note -->
+                <div class="space-y-3 text-xs sm:text-sm text-slate-600 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                            4. Ahorro Estimado y Horquilla de Escenarios
+                        </h4>
+                        <p class="leading-relaxed mb-2">
+                            El ahorro económico no depende únicamente de la energía total que producen los módulos. La variable fundamental es <strong>cuánta de esa energía puede ser consumida directamente en el inmueble</strong> durante las horas de generación solar.
+                        </p>
+                        <p class="leading-relaxed text-slate-500">
+                            Por este motivo, se presenta una horquilla de escenarios según el perfil de coincidencia horaria de consumo:
+                        </p>
+                    </div>
+                    <div class="p-3 bg-indigo-50 border border-indigo-200 rounded-xl text-indigo-950 text-xs">
+                        <i class="fa-solid fa-arrows-left-right text-indigo-600 mr-1"></i> Rango Estimado de Ahorro Mensual:
+                        <strong class="block text-sm font-bold text-indigo-900 mt-0.5">$65.000 – $105.000 / mes</strong>
+                        <span class="text-indigo-700 text-[11px] block mt-0.5">Equivalente anual: <strong>$780.000 – $1.260.000 / año</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA DE ESCENARIOS -->
+            <div class="overflow-x-auto pt-2">
+                <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                            <th class="p-3.5 rounded-l-xl">Escenario</th>
+                            <th class="p-3.5">Autoconsumo Estimado</th>
+                            <th class="p-3.5">Energía Solar Aprovechada</th>
+                            <th class="p-3.5">Ahorro Mensual Estimado</th>
+                            <th class="p-3.5 rounded-r-xl">Ahorro Anual Estimado</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-3.5 font-medium text-slate-800">Conservador</td>
+                            <td class="p-3.5 text-slate-600">55 %</td>
+                            <td class="p-3.5 text-slate-600">≈ 342 kWh/mes</td>
+                            <td class="p-3.5 font-semibold text-slate-700">≈ $ 65.000</td>
+                            <td class="p-3.5 font-semibold text-slate-700">≈ $ 780.000</td>
+                        </tr>
+                        <tr class="bg-amber-50/80 font-semibold text-slate-900 border-l-4 border-amber-500">
+                            <td class="p-3.5 flex items-center gap-2">
+                                Base (Referencia Central)
+                                <span class="px-2 py-0.5 text-[10px] bg-amber-200 text-amber-900 rounded-full">Referencia</span>
+                            </td>
+                            <td class="p-3.5 text-amber-900 font-bold">70 %</td>
+                            <td class="p-3.5 text-amber-900">≈ 435 kWh/mes</td>
+                            <td class="p-3.5 text-emerald-700 font-extrabold text-base">≈ $ 87.000</td>
+                            <td class="p-3.5 text-emerald-700 font-extrabold text-base">≈ $ 1.043.000</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-3.5 font-medium text-slate-800">Favorable</td>
+                            <td class="p-3.5 text-slate-600">80 %</td>
+                            <td class="p-3.5 text-slate-600">≈ 497 kWh/mes</td>
+                            <td class="p-3.5 font-semibold text-slate-700">≈ $ 104.000</td>
+                            <td class="p-3.5 font-semibold text-slate-700">≈ $ 1.260.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- INTERACTIVE CALCULATOR SLIDER -->
+            <div class="bg-slate-50 rounded-2xl border border-amber-200/80 p-5 sm:p-6 no-print space-y-4">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-amber-500"></i>
+                            Simulador Interactivo de Autoconsumo Solar
+                        </h4>
+                        <p class="text-xs text-slate-500 mt-0.5">
+                            Ajuste el porcentaje de energía solar aprovechada directamente durante el día para simular resultados.
+                        </p>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-200 px-4 py-2 rounded-xl text-right self-stretch sm:self-auto">
+                        <span class="text-xs text-amber-800 font-semibold block">Nivel de Autoconsumo</span>
+                        <span id="sliderValue" class="text-xl font-extrabold text-amber-600">70 %</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <input id="autoconsumoRange" type="range" min="40" max="90" value="70" step="5" 
+                           class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+                            <span class="text-[11px] text-slate-500 font-medium block">Energía Aprovechada</span>
+                            <p id="simEnergia" class="text-base font-bold text-slate-800 mt-0.5">≈ 435 kWh/mes</p>
+                        </div>
+                        <div class="bg-emerald-50 p-3.5 rounded-xl border border-emerald-200 shadow-xs">
+                            <span class="text-[11px] text-emerald-700 font-semibold block">Ahorro Mensual Est.</span>
+                            <p id="simAhorroMes" class="text-lg font-extrabold text-emerald-700 mt-0.5">$ 87.000 / mes</p>
+                        </div>
+                        <div class="bg-indigo-50 p-3.5 rounded-xl border border-indigo-200 shadow-xs">
+                            <span class="text-[11px] text-indigo-700 font-semibold block">Recuperación Estimada</span>
+                            <p id="simPayback" class="text-base font-bold text-indigo-700 mt-0.5">≈ 5,8 años</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHARTS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3 text-center">
+                        Ahorro Mensual Estimado por Escenario ($ ARS)
+                    </h4>
+                    <div class="h-56 relative">
+                        <canvas id="chartAhorro"></canvas>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3 text-center">
+                        Recuperación de Inversión (Años Payback)
+                    </h4>
+                    <div class="h-56 relative">
+                        <canvas id="chartPayback"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: INVERSIÓN LLAVE EN MANO & ALCANCE DETALLADO -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-amber-500 rounded-full inline-block"></span>
+                    5. Inversión Llave en Mano y Alcance del Servicio
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                <!-- Pricing Box (5 Cols) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-6 rounded-2xl flex flex-col justify-between shadow-lg relative overflow-hidden">
+                    <div class="space-y-4">
+                        <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-lg uppercase tracking-wider border border-amber-500/30">
+                            Precio Cerrado Llave en Mano
+                        </span>
+                        
+                        <div>
+                            <span class="text-xs font-semibold text-slate-300 block">Importe Total Cotizado</span>
+                            <div class="text-3xl sm:text-4xl font-black text-white mt-1">
+                                USD 3.961,<span class="text-2xl font-bold text-amber-400">24</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 space-y-1">
+                            <span class="text-xs text-slate-400 block">Equivalente de Referencia en Pesos:</span>
+                            <strong class="text-lg font-bold text-amber-400 block">$ 6.100.310 ARS</strong>
+                            <p class="text-[11px] text-slate-400">
+                                Tipo de cambio ref: <strong>$1.540 / USD</strong> (BNA vendedor, Octubre 2026).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-700/80 text-[11px] text-slate-400 space-y-1.5">
+                        <p class="flex items-center gap-1.5 text-slate-300">
+                            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                            <strong>Precio final cerrado:</strong> Sin cargos adicionales por flete, logística o montaje.
+                        </p>
+                        <p class="text-slate-400 italic">
+                            El valor final en ARS se ajustará al tipo de cambio oficial aplicable al momento del pago efectivo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Comprehensive Itemized Scope Checklist (7 Cols) -->
+                <div class="lg:col-span-7 space-y-4">
+                    <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-amber-500"></i>
+                        Detalle Exhaustivo Incluido en la Solución Llave en Mano:
+                    </h4>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <!-- Equipos -->
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Módulos Fotovoltaicos TOPCon</strong>
+                                <span class="text-slate-500 text-[11px]">8 Módulos de 580 Wp tecnología N-Type de máxima eficiencia.</span>
+                            </div>
+                        </div>
+
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Inversor Central GoodWe 5 kW</strong>
+                                <span class="text-slate-500 text-[11px]">Inversor On-Grid monofásico de alta durabilidad y monitoreo WiFi.</span>
+                            </div>
+                        </div>
+
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Smart Meter & Inyección Cero</strong>
+                                <span class="text-slate-500 text-[11px]">Controlador de medición inteligente GoodWe y transformador de corriente CT.</span>
+                            </div>
+                        </div>
+
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Estructura de Montaje Solar</strong>
+                                <span class="text-slate-500 text-[11px]">Perfiles de aluminio anodizado/galvanizado con bulonería de acero inoxidable.</span>
+                            </div>
+                        </div>
+
+                        <!-- Protecciones & Cableado -->
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Tablero de Protecciones DC/AC</strong>
+                                <span class="text-slate-500 text-[11px]">Descargadores de sobretensión (DPS), llaves térmicas y seccionador fusible DC.</span>
+                            </div>
+                        </div>
+
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Cableado Solar Especializado</strong>
+                                <span class="text-slate-500 text-[11px]">Cables fotovoltaicos UV 6mm², conectores MC4 sellados y canalizaciones seguras.</span>
+                            </div>
+                        </div>
+
+                        <!-- Ingeniería & Logística -->
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Ingeniería & Dimensionamiento</strong>
+                                <span class="text-slate-500 text-[11px]">Cálculo estructural, planos unifilares y optimización de sombras.</span>
+                            </div>
+                        </div>
+
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Flete y Logística Completa</strong>
+                                <span class="text-slate-500 text-[11px]">Transporte seguro de paneles, estructuras e inversor hasta el domicilio.</span>
+                            </div>
+                        </div>
+
+                        <!-- Instalación y Puesta en marcha -->
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Montaje y Mano de Obra</strong>
+                                <span class="text-slate-500 text-[11px]">Técnicos certificados IntiWatt para trabajo en altura e instalación eléctrica.</span>
+                            </div>
+                        </div>
+
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Puesta en Marcha y App WiFi</strong>
+                                <span class="text-slate-500 text-[11px]">Pruebas operativas, configuración inyección cero y vinculación al celular.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-[11px] text-amber-900">
+                        <i class="fa-solid fa-shield-cat text-amber-600 mr-1"></i>
+                        <strong>Garantía de Alcance Llave en Mano:</strong> No existen cargos adicionales por transporte, logística o montaje dentro del alcance indicado en esta propuesta.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: RECUPERACIÓN DE LA INVERSIÓN (PAYBACK) -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-amber-500 rounded-full inline-block"></span>
+                    6. Recuperación de la Inversión (Payback)
+                </h3>
+            </div>
+
+            <p class="text-sm text-slate-600 leading-relaxed">
+                Considerando la inversión total llave en mano de <strong>USD 3.961,24</strong> (equivalente a aproximadamente $6,10 millones al tipo de cambio de referencia de $1.540/USD), la amortización estimada del capital según cada escenario es la siguiente:
+            </p>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                            <th class="p-3.5 rounded-l-xl">Escenario</th>
+                            <th class="p-3.5">Ahorro Anual Estimado</th>
+                            <th class="p-3.5 rounded-r-xl">Recuperación Estimada (Años)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr>
+                            <td class="p-3.5 font-medium text-slate-800">Conservador (55% Autoconsumo)</td>
+                            <td class="p-3.5 text-slate-700 font-medium">≈ $ 780.000 / año</td>
+                            <td class="p-3.5 font-bold text-slate-800">≈ 7,8 años</td>
+                        </tr>
+                        <tr class="bg-amber-50/80 font-bold text-slate-900 border-l-4 border-amber-500">
+                            <td class="p-3.5">Base (70% Autoconsumo — Referencia Central)</td>
+                            <td class="p-3.5 text-emerald-700">≈ $ 1.043.000 / año</td>
+                            <td class="p-3.5 text-indigo-700 text-base">≈ 5,8 años</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3.5 font-medium text-slate-800">Favorable (80% Autoconsumo)</td>
+                            <td class="p-3.5 text-slate-700 font-medium">≈ $ 1.260.000 / año</td>
+                            <td class="p-3.5 font-bold text-slate-800">≈ 4,8 años</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-1">
+                    <strong class="text-slate-800 font-bold block">Rango Estimado de Recuperación:</strong>
+                    <p class="text-slate-600 text-sm font-bold text-indigo-600">≈ 4,8 a 7,8 Años</p>
+                    <p class="text-[11px] text-slate-500">Varía en función de la simultaneidad entre consumo y sol.</p>
+                </div>
+                <div class="p-4 bg-amber-50/80 border border-amber-200 rounded-xl text-xs space-y-1">
+                    <strong class="text-amber-900 font-bold block">Escenario Central de Amortización:</strong>
+                    <p class="text-amber-900 text-sm font-black">≈ 5,8 Años</p>
+                    <p class="text-[11px] text-amber-800">Sensibilidad: La recuperación mejora si se incrementa la tarifa de red y se alarga si disminuye el consumo diurno.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 & 8: GARANTÍAS Y CONDICIONES COMERCIALES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- 7. GARANTÍAS -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 space-y-4">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-amber-500"></i>
+                    7. Garantías de Equipos e Instalación
+                </h3>
+                <ul class="space-y-3 text-xs sm:text-sm text-slate-600">
+                    <li class="p-3 bg-slate-50 rounded-xl border border-slate-200/70 space-y-0.5">
+                        <strong class="text-slate-800 block">Módulos Fotovoltaicos:</strong>
+                        <span>Garantía oficial de producto y garantía de potencia de rendimiento conforme a las condiciones del fabricante.</span>
+                    </li>
+                    <li class="p-3 bg-slate-50 rounded-xl border border-slate-200/70 space-y-0.5">
+                        <strong class="text-slate-800 block">Inversor Central GoodWe:</strong>
+                        <span>Garantía oficial del fabricante aplicable a la unidad e inversores vigentes.</span>
+                    </li>
+                    <li class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-emerald-950 space-y-0.5">
+                        <strong class="text-emerald-950 block font-bold">Garantía de Instalación IntiWatt:</strong>
+                        <span><strong>2 Años de garantía</strong> sobre los trabajos de montaje e instalación ejecutados por IntiWatt (excluyendo manipulaciones de terceros o fenómenos climáticos extremos ajenos).</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 8. CONDICIONES COMERCIALES -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 space-y-4">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-file-contract text-amber-500"></i>
+                    8. Condiciones Comerciales
+                </h3>
+                <div class="space-y-3 text-xs sm:text-sm text-slate-600">
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70">
+                        <span class="font-bold text-slate-800 block">Validez de la Propuesta:</span>
+                        <span>15 días corridos a partir de la fecha de emisión.</span>
+                    </div>
+                    
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70 space-y-2">
+                        <span class="font-bold text-slate-800 block">Esquema de Pago:</span>
+                        <div class="grid grid-cols-2 gap-2 text-center text-xs font-semibold">
+                            <div class="p-2 bg-amber-100 text-amber-900 rounded-lg border border-amber-200">
+                                <strong>60 %</strong><br><span class="text-[10px] font-normal">Inicio del Proyecto</span>
+                            </div>
+                            <div class="p-2 bg-slate-200 text-slate-800 rounded-lg border border-slate-300">
+                                <strong>40 %</strong><br><span class="text-[10px] font-normal">Contra Finalización</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-slate-500 italic p-2 bg-slate-50 rounded-lg">
+                        Los valores expresados en dólares podrán abonarse en dicha moneda o en pesos argentinos al tipo de cambio pactado para la operación.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: CONSIDERACIONES TÉCNICAS -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-4">
+            <div class="border-b border-slate-200 pb-3">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-microchip text-amber-500"></i>
+                    9. Consideraciones Técnicas de Ingeniería
+                </h3>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                La producción y el ahorro indicados corresponden a una estimación preliminar de ingeniería. El resultado económico real dependerá principalmente de:
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-700">
+                <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/70">
+                    <i class="fa-solid fa-clock text-amber-500 mb-1 block"></i>
+                    Perfil horario de consumo.
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/70">
+                    <i class="fa-solid fa-sun text-amber-500 mb-1 block"></i>
+                    Consumo en horas solares.
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/70">
+                    <i class="fa-solid fa-calendar-days text-amber-500 mb-1 block"></i>
+                    Estacionalidad verano/invierno.
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/70">
+                    <i class="fa-solid fa-compass text-amber-500 mb-1 block"></i>
+                    Orientación e inclinación.
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/70">
+                    <i class="fa-solid fa-cloud-sun text-amber-500 mb-1 block"></i>
+                    Sombras y clima real.
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/70">
+                    <i class="fa-solid fa-arrow-trend-up text-amber-500 mb-1 block"></i>
+                    Evolución tarifaria EDESE S.A.
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/70">
+                    <i class="fa-solid fa-scale-balanced text-amber-500 mb-1 block"></i>
+                    Marcos tarifarios y tributarios.
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200/70">
+                    <i class="fa-solid fa-clipboard-check text-amber-500 mb-1 block"></i>
+                    Validación previa en obra.
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10 & CONCLUSION FOOTER -->
+        <footer class="bg-slate-900 text-white rounded-2xl shadow-xl p-6 sm:p-8 space-y-6 text-center print-shadow-none">
+            <div class="max-w-2xl mx-auto space-y-4">
+                <div class="w-16 h-16 bg-white/5 backdrop-blur rounded-2xl border border-white/10 flex items-center justify-center mx-auto shadow-lg">
+                    <svg class="w-12 h-12" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="75" y="55" width="50" height="50" rx="8" stroke="#F59E0B" stroke-width="4.5" fill="none"/>
+                        <rect x="85" y="65" width="30" height="30" rx="5" stroke="#F59E0B" stroke-width="3.5" fill="none"/>
+                        <rect x="92" y="72" width="16" height="16" rx="3" fill="#F59E0B"/>
+                        <line x1="83" y1="47" x2="83" y2="55" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="94" y1="47" x2="94" y2="55" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="106" y1="47" x2="106" y2="55" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="117" y1="47" x2="117" y2="55" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="83" y1="105" x2="83" y2="113" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="94" y1="105" x2="94" y2="113" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="106" y1="105" x2="106" y2="113" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="117" y1="105" x2="117" y2="113" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="67" y1="63" x2="75" y2="63" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="67" y1="74" x2="75" y2="74" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="67" y1="86" x2="75" y2="86" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="67" y1="97" x2="75" y2="97" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="125" y1="63" x2="133" y2="63" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="125" y1="74" x2="133" y2="74" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="125" y1="86" x2="133" y2="86" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="125" y1="97" x2="133" y2="97" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="100" cy="80" r="54" stroke="#F59E0B" stroke-width="4.5" fill="none"/>
+                        <path d="M100 26 L100 14" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="100" cy="10" r="4.5" fill="#F59E0B"/>
+                        <path d="M100 134 L100 146" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="100" cy="150" r="4.5" fill="#F59E0B"/>
+                        <path d="M46 80 L34 80" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="30" cy="80" r="4.5" fill="#F59E0B"/>
+                        <path d="M154 80 L166 80" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="170" cy="80" r="4.5" fill="#F59E0B"/>
+                        <path d="M121 30 L130 18" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="133" cy="14" r="4.5" fill="#F59E0B"/>
+                        <path d="M138 42 L150 32 L158 32" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="163" cy="32" r="4.5" fill="#F59E0B"/>
+                        <path d="M149 59 L162 52 L172 52" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="177" cy="52" r="4.5" fill="#F59E0B"/>
+                        <path d="M149 101 L162 108 L172 108" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="177" cy="108" r="4.5" fill="#F59E0B"/>
+                        <path d="M138 118 L150 128 L158 128" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="163" cy="128" r="4.5" fill="#F59E0B"/>
+                        <path d="M121 130 L130 142" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="133" cy="146" r="4.5" fill="#F59E0B"/>
+                        <path d="M79 130 L70 142" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="67" cy="146" r="4.5" fill="#F59E0B"/>
+                        <path d="M62 118 L50 128 L42 128" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="37" cy="128" r="4.5" fill="#F59E0B"/>
+                        <path d="M51 101 L38 108 L28 108" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="23" cy="108" r="4.5" fill="#F59E0B"/>
+                        <path d="M51 59 L38 52 L28 52" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="23" cy="52" r="4.5" fill="#F59E0B"/>
+                        <path d="M62 42 L50 32 L42 32" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="37" cy="32" r="4.5" fill="#F59E0B"/>
+                        <path d="M79 30 L70 18" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="67" cy="14" r="4.5" fill="#F59E0B"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-black text-amber-500 tracking-tight">10. Conclusión del Proyecto</h3>
+                    <p class="text-xs font-semibold text-amber-400 uppercase tracking-widest mt-0.5">INTIWATT — Somos la Eficiencia Energética</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-slate-800/80 p-4 rounded-xl border border-slate-700/80">
+                    <div>
+                        <span class="text-slate-400 block text-[10px] uppercase">Inversión Llave en Mano</span>
+                        <strong class="text-amber-400 font-bold text-sm">USD 3.961,24</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[10px] uppercase">Ahorro Mensual Est.</span>
+                        <strong class="text-white font-bold text-sm">$65k – $105k</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[10px] uppercase">Ahorro Anual Est.</span>
+                        <strong class="text-white font-bold text-sm">$780k – $1,26M</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[10px] uppercase">Recuperación Central</span>
+                        <strong class="text-indigo-400 font-bold text-sm">≈ 5,8 Años</strong>
+                    </div>
+                </div>
+
+                <blockquote class="text-xs sm:text-sm text-slate-300 italic border-t border-slate-800 pt-4">
+                    "La variable decisiva es la cantidad de energía solar que pueda ser consumida directamente en el inmueble.<br class="hidden sm:inline">
+                    Por eso, el dimensionamiento no busca simplemente instalar más potencia: busca reducir la cantidad de energía que el inmueble necesita comprar a la red."
+                </blockquote>
+            </div>
+
+            <div class="border-t border-slate-800 pt-4 text-[11px] text-slate-500">
+                <p>Propuesta Técnico-Comercial preparada para Campero Octavio Francisco Leandro — La Banda, Santiago del Estero.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT LOGIC & CHARTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // CHART 0: 24-HOUR HOURLY GENERATION VS CONSUMPTION PROFILE
+            const ctxPerfil = document.getElementById('chartPerfilDiario').getContext('2d');
+            
+            const horas24 = ['00h','01h','02h','03h','04h','05h','06h','07h','08h','09h','10h','11h','12h','13h','14h','15h','16h','17h','18h','19h','20h','21h','22h','23h'];
+            
+            // Typical daily consumption profile in kW
+            const consumoTípico = [0.6, 0.5, 0.5, 0.4, 0.4, 0.5, 0.8, 1.2, 1.8, 2.2, 2.5, 2.8, 3.2, 3.5, 3.2, 2.8, 2.4, 2.0, 2.2, 2.8, 3.2, 2.6, 1.8, 1.0];
+            
+            // Solar generation curve for 4.64 kWp system (bell curve)
+            const generacionSolar = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.5, 1.4, 2.5, 3.5, 4.2, 4.4, 4.1, 3.6, 2.7, 1.6, 0.6, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0];
+            
+            // Autoconsumo (min between solar & consumption)
+            const autoconsumo = generacionSolar.map((sol, idx) => Math.min(sol, consumoTípico[idx]));
+
+            new Chart(ctxPerfil, {
+                type: 'line',
+                data: {
+                    labels: horas24,
+                    datasets: [
+                        {
+                            label: 'Generación Solar (kW)',
+                            data: generacionSolar,
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                            fill: true,
+                            tension: 0.4,
+                            borderWidth: 2.5,
+                            pointRadius: 2,
+                            pointHoverRadius: 5
+                        },
+                        {
+                            label: 'Consumo Inmueble (kW)',
+                            data: consumoTípico,
+                            borderColor: '#94a3b8',
+                            borderDash: [4, 4],
+                            fill: false,
+                            tension: 0.3,
+                            borderWidth: 2,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Autoconsumo Directo (Ahorro)',
+                            data: autoconsumo,
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.35)',
+                            fill: true,
+                            tension: 0.3,
+                            borderWidth: 2,
+                            pointRadius: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ' ' + context.dataset.label + ': ' + context.raw + ' kW';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Potencia (kW)',
+                                font: { size: 11, weight: 'bold' }
+                            },
+                            ticks: {
+                                callback: function(value) { return value + ' kW'; }
+                            }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            // CHART 1: AHORRO MENSUAL ESTIMADO
+            const ctxAhorro = document.getElementById('chartAhorro').getContext('2d');
+            new Chart(ctxAhorro, {
+                type: 'bar',
+                data: {
+                    labels: ['Conservador (55%)', 'Base (70%)', 'Favorable (80%)'],
+                    datasets: [{
+                        label: 'Ahorro Mensual ($ ARS)',
+                        data: [65000, 87000, 104000],
+                        backgroundColor: [
+                            'rgba(245, 158, 11, 0.85)',
+                            'rgba(16, 185, 129, 0.9)',
+                            'rgba(99, 102, 241, 0.85)'
+                        ],
+                        borderColor: [
+                            '#d97706',
+                            '#059669',
+                            '#4f46e5'
+                        ],
+                        borderWidth: 1.5,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ' Ahorro: $' + context.raw.toLocaleString('es-AR') + ' / mes';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + (value/1000) + 'k';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // CHART 2: RECUPERACIÓN PAYBACK
+            const ctxPayback = document.getElementById('chartPayback').getContext('2d');
+            new Chart(ctxPayback, {
+                type: 'bar',
+                data: {
+                    labels: ['Conservador', 'Base Central', 'Favorable'],
+                    datasets: [{
+                        label: 'Años para Retorno',
+                        data: [7.8, 5.8, 4.8],
+                        backgroundColor: 'rgba(15, 23, 42, 0.85)',
+                        borderColor: '#0f172a',
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ' Recuperación: ' + context.raw + ' años';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 10,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + ' años';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // DYNAMIC SIMULATOR SLIDER LOGIC
+            const slider = document.getElementById('autoconsumoRange');
+            const sliderVal = document.getElementById('sliderValue');
+            const simEnergia = document.getElementById('simEnergia');
+            const simAhorroMes = document.getElementById('simAhorroMes');
+            const simPayback = document.getElementById('simPayback');
+
+            const totalGeneracionMes = 621; // kWh/mes promedio
+            const inversionPesos = 6100310; // $ ARS referencia
+
+            slider.addEventListener('input', function() {
+                const pct = parseInt(this.value);
+                sliderVal.textContent = pct + ' %';
+
+                const energiaAprovechada = Math.round((totalGeneracionMes * pct) / 100);
+                simEnergia.textContent = '≈ ' + energiaAprovechada + ' kWh/mes';
+
+                let ahorroEstimado;
+                if (pct <= 70) {
+                    ahorroEstimado = 65000 + ((pct - 55) / 15) * (87000 - 65000);
+                } else {
+                    ahorroEstimado = 87000 + ((pct - 70) / 10) * (104000 - 87000);
+                }
+                ahorroEstimado = Math.round(ahorroEstimado);
+                simAhorroMes.textContent = '$ ' + ahorroEstimado.toLocaleString('es-AR') + ' / mes';
+
+                const ahorroAnual = ahorroEstimado * 12;
+                const añosPayback = (inversionPesos / ahorroAnual).toFixed(1);
+                simPayback.textContent = '≈ ' + añosPayback + ' años';
+            });
+        });
+    </script>
+</body>
+</html>
